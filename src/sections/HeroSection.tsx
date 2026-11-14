@@ -175,7 +175,7 @@ const HeroSection = () => {
               style={{ fontSize: 'clamp(10vw, 10vw, 10vw)' }}
             >
               <span className="inline-block">Hi, i&apos;m </span>
-              <span className="inline-block" style={{ color: '#BBCCD7' }}>shreyansh</span>
+              <span className="inline-block" style={{ color: '#BBCCD7' }}>shivangi</span>
             </h1>
           </div>
         </FadeIn>
@@ -240,7 +240,7 @@ const HeroSection = () => {
                   {/* Photo */}
                   <img
                     src={profileImageUrl}
-                    alt="Shreyansh Misra, AI Systems Engineer and Developer"
+                    alt="Shivangi Tripathi, Software Developer and Frontend Engineer"
                     className="relative w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] object-contain pointer-events-none select-none rounded-full"
                     style={{ maxWidth: '85vw' }}
                     draggable={false}
@@ -258,7 +258,7 @@ const HeroSection = () => {
               className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug text-center max-w-[360px] sm:max-w-[460px] md:max-w-[520px]"
               style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
             >
-              an ai systems engineer driven by building reliable and production-ready systems
+              a software developer driven by building intuitive, modern and reliable web systems
             </p>
           </FadeIn>
           <FadeIn delay={0.5} y={20}>

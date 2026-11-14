@@ -46,7 +46,7 @@ const AboutSection = () => {
           <FadeIn delay={0.1} y={30}>
             <div style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)' }}>
               <p className="text-[#D7E2EA] font-medium text-center leading-relaxed">
-                I&apos;m Shreyansh Misra, also known online as TangledDaunT. As an AI systems engineer and full-stack developer, I focus on RAG pipelines, LLM architecture, automation, and reliable production systems.
+                I&apos;m Shivangi Tripathi, a frontend engineer and software developer. Currently pursuing my 3rd year B.Tech in Computer Applications & Computing (CAC) at Galgotias University, I focus on crafting interactive, modern web interfaces and practical AI tools.
               </p>
             </div>
           </FadeIn>

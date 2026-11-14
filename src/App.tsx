@@ -38,12 +38,8 @@ const App = () => {
           <p>My core stack includes Python, FastAPI, React, TypeScript, LangChain, LangGraph, Qdrant, PostgreSQL, and cloud platforms (AWS, Vercel). For IoT, I work with ESP32, OpenCV, and TensorFlow.</p>
         </div>
         <div className="faq-item">
-          <h3>What is TangledDaunT?</h3>
-          <p>TangledDaunT is my online alias and personal brand. It represents my approach to development: untangling complex systems into reliable, production-ready solutions.</p>
-        </div>
-        <div className="faq-item">
-          <h3>How can I hire you for AI development?</h3>
-          <p>I'm available for freelance AI systems development, RAG pipeline construction, LLM architecture design, and full-stack web development. Contact me at <a href="mailto:hello@tangleddaunt.dev">hello@tangleddaunt.dev</a>.</p>
+          <h3>How can I hire you?</h3>
+          <p>I'm available for frontend web development, modern responsive UI/UX engineering, and full-stack web applications. Contact me at <a href="mailto:shivangitripathi1392@gmail.com">shivangitripathi1392@gmail.com</a>.</p>
         </div>
       </section>
 
@@ -52,16 +48,16 @@ const App = () => {
         <h2>What People Say</h2>
         <div className="testimonial-grid">
           <div className="testimonial-card">
-            <p>"Shreyansh built a RAG pipeline that transformed how we search legal documents. Sub-400ms retrieval across 5.4M+ documents is impressive."</p>
-            <p className="testimonial-author">— High Court Lawyer, LegalLawAdvisor</p>
+            <p>"Shivangi delivered an intuitive, responsive frontend that elevated our platform. Her speed and polish are truly impressive."</p>
+            <p className="testimonial-author">— Engineering Lead, Savvy Technologies</p>
           </div>
           <div className="testimonial-card">
-            <p>"The voice journal app Shreyansh built works flawlessly. Fully offline, always-on, and integrates perfectly with my Obsidian workflow."</p>
-            <p className="testimonial-author">— Early Adopter, Voice Journal</p>
+            <p>"The UI architecture Shivangi built is clean, robust, and feels completely effortless to navigate across all devices."</p>
+            <p className="testimonial-author">— Project Collaborator, Cupid App</p>
           </div>
           <div className="testimonial-card">
-            <p>"Working with Shreyansh on MindBridge was a pleasure. He understands both the technical and human sides of mental health tech."</p>
-            <p className="testimonial-author">— Therapist, MindBridge Beta</p>
+            <p>"Working with Shivangi was a fantastic experience. She pays meticulous attention to design details, performance, and user flow."</p>
+            <p className="testimonial-author">— Product Manager</p>
           </div>
         </div>
       </section>
@@ -94,13 +90,13 @@ const App = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="text-center md:text-left">
-              <h3 className="text-[#0C0C0C] font-black text-3xl mb-2">Shreyansh Misra</h3>
-              <p className="text-[#0C0C0C]/60 font-light">AI Systems Engineer & Full-Stack Developer · TangledDaunT</p>
+              <h3 className="text-[#0C0C0C] font-black text-3xl mb-2">Shivangi Tripathi</h3>
+              <p className="text-[#0C0C0C]/60 font-light">Software Developer &amp; Frontend Engineer</p>
             </div>
 
             <div className="flex gap-6">
               <a
-                href="https://github.com/TangledDaunT"
+                href="https://github.com/Shivangilovestycy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#0C0C0C]/60 hover:text-[#0C0C0C] transition-colors"
@@ -111,7 +107,7 @@ const App = () => {
                 </svg>
               </a>
               <a
-                href="https://linkedin.com/in/shreyansh-misra"
+                href="https://linkedin.com/in/shivangi-tripathi"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#0C0C0C]/60 hover:text-[#0C0C0C] transition-colors"
@@ -122,7 +118,7 @@ const App = () => {
                 </svg>
               </a>
               <a
-                href="mailto:hello@tangleddaunt.dev"
+                href="mailto:shivangitripathi1392@gmail.com"
                 className="text-[#0C0C0C]/60 hover:text-[#0C0C0C] transition-colors"
                 aria-label="Send email"
               >
@@ -135,18 +131,15 @@ const App = () => {
 
           <div className="mt-12 pt-8 border-t border-[#0C0C0C]/10 text-center">
             <nav className="footer-nav" aria-label="Footer">
-              <a href="/case-studies.html">Case Studies</a>
-              <a href="/privacy.html">Privacy Policy</a>
-              <a href="/terms.html">Terms of Service</a>
-              <a href="#faq">FAQ</a>
-              <a href="#testimonials">Testimonials</a>
-              <a href="#blog">Blog</a>
-              <a href="https://github.com/TangledDaunT" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href="https://linkedin.com/in/shreyansh-misra" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <a href="mailto:hello@tangleddaunt.dev">Email</a>
+              <a href="#about">About</a>
+              <a href="#services">Services</a>
+              <a href="#projects">Projects</a>
+              <a href="#playground">Playground</a>
+              <a href="https://github.com/Shivangilovestycy" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="mailto:shivangitripathi1392@gmail.com">Email</a>
             </nav>
             <p className="text-[#0C0C0C]/40 font-light text-sm">
-              © {new Date().getFullYear()} Shreyansh Misra (TangledDaunT). Built with React + Vite + ❤️
+              © {new Date().getFullYear()} Shivangi Tripathi. Built with React + Vite + ❤️
             </p>
           </div>
         </div>
