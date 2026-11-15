@@ -38,7 +38,7 @@ const ServicesSection = () => {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="bg-[#0C0C0C] border-t border-[#A855F7]/20 px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32"
+      className="bg-[#0C0C0C] border-t border-[#BB98E5]/18 px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32"
     >
       <h2
         id="services-heading"
@@ -56,12 +56,12 @@ const ServicesSection = () => {
               style={{
                 borderBottom:
                   i < services.length - 1
-                    ? '1px solid rgba(168, 85, 247, 0.15)'
+                    ? '1px solid rgba(187, 152, 229, 0.14)'
                     : 'none',
               }}
             >
               <span
-                className="font-black leading-none flex-shrink-0 bg-gradient-to-br from-[#E9D5FF] via-[#C084FC] to-[#7C3AED] bg-clip-text text-transparent"
+                className="font-black leading-none flex-shrink-0 bg-gradient-to-br from-[#FFFFFF] via-[#BB98E5] to-[#FFA07A] bg-clip-text text-transparent"
                 style={{ fontSize: 'clamp(3rem, 10vw, 140px)' }}
               >
                 {s.number}

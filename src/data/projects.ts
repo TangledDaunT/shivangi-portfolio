@@ -232,10 +232,10 @@ export const categoryLabels: Record<Project['category'], string> = {
 };
 
 export const categoryColors: Record<Project['category'], string> = {
-  featured: '#C084FC',
-  production: '#A855F7',
+  featured: '#FFA07A',
+  production: '#BB98E5',
+  automation: '#E2BEF7',
   iot: '#94A3B8',
-  automation: '#DDD6FE',
   experiment: '#64748B',
   coursework: '#CBD5E1',
 };

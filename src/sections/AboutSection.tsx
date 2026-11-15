@@ -73,16 +73,16 @@ const AboutSection = () => {
 
         {/* Philosophy Section */}
         <FadeIn delay={0.2} y={40}>
-          <div className="bg-[#120E1E]/80 border border-[#A855F7]/30 rounded-3xl p-8 sm:p-10 md:p-12 max-w-3xl backdrop-blur-sm shadow-[0_0_30px_rgba(168,85,247,0.12)]">
+          <div className="bg-[#121118]/80 border border-[#BB98E5]/20 rounded-3xl p-8 sm:p-10 md:p-12 max-w-3xl backdrop-blur-sm shadow-[0_0_30px_rgba(187,152,229,0.1)]">
             <div className="flex items-start gap-4 mb-6">
-              <div className="p-3 bg-gradient-to-br from-[#7C3AED] to-[#C084FC] rounded-2xl shadow-[0_0_20px_rgba(168,85,247,0.4)]">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="p-3 bg-gradient-to-br from-[#BB98E5] to-[#FFA07A] rounded-2xl shadow-[0_0_20px_rgba(187,152,229,0.35)]">
+                <svg className="w-6 h-6 text-[#0C0C0C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
               <div>
                 <h3 className="text-white font-semibold text-xl mb-2">Development Philosophy</h3>
-                <p className="text-[#C084FC] font-light text-sm italic">"Clean logic, expressive UI, automated execution"</p>
+                <p className="text-[#FFA07A] font-light text-sm italic">"Clean logic, expressive UI, automated execution"</p>
               </div>
             </div>
 

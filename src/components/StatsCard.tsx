@@ -20,7 +20,7 @@ const StatsCard: React.FC<StatsCardProps> = ({
 }) => {
   return (
     <motion.div
-      className="bg-[#120E1E]/80 border border-[#A855F7]/25 rounded-3xl p-6 sm:p-8 md:p-10 hover:border-[#A855F7]/60 hover:shadow-[0_0_30px_rgba(168,85,247,0.18)] transition-all duration-300 backdrop-blur-sm"
+      className="bg-[#121118]/80 border border-[#BB98E5]/20 rounded-3xl p-6 sm:p-8 md:p-10 hover:border-[#FFA07A]/50 hover:shadow-[0_0_30px_rgba(187,152,229,0.15),0_0_15px_rgba(255,160,122,0.1)] transition-all duration-300 backdrop-blur-sm"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}

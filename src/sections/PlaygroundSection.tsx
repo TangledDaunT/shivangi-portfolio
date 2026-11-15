@@ -22,7 +22,7 @@ const DiceRoller = () => {
   const diceFaces = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
 
   return (
-    <div className="bg-[#120E1E]/80 rounded-3xl p-8 border border-[#A855F7]/30 backdrop-blur-md shadow-[0_0_30px_rgba(168,85,247,0.15)]">
+    <div className="bg-[#121118]/80 rounded-3xl p-8 border border-[#BB98E5]/20 backdrop-blur-md shadow-[0_0_30px_rgba(187,152,229,0.12)]">
       <div className="flex flex-col items-center gap-6">
         <div className="flex gap-8">
           {dice.map((d, i) => (
@@ -30,19 +30,19 @@ const DiceRoller = () => {
               key={i}
               animate={{ rotate: rolling ? 360 : 0 }}
               transition={{ duration: 0.5 }}
-              className="text-[120px] text-[#E9D5FF] drop-shadow-[0_0_20px_rgba(168,85,247,0.5)]"
+              className="text-[120px] text-[#EBDCF9] drop-shadow-[0_0_20px_rgba(187,152,229,0.4)]"
             >
               {diceFaces[d - 1]}
             </motion.div>
           ))}
         </div>
         <div className="text-white text-2xl font-bold tracking-wide">
-          Total: <span className="text-[#C084FC]">{dice[0] + dice[1]}</span>
+          Total: <span className="text-[#FFA07A]">{dice[0] + dice[1]}</span>
         </div>
         <button
           onClick={rollDice}
           disabled={rolling}
-          className="px-8 py-3 bg-gradient-to-r from-[#7C3AED] to-[#A855F7] text-white font-semibold rounded-full hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] transition-all disabled:opacity-50"
+          className="px-8 py-3 bg-gradient-to-r from-[#BB98E5] to-[#FFA07A] text-[#0C0C0C] font-bold rounded-full hover:shadow-[0_0_20px_rgba(255,160,122,0.45)] transition-all disabled:opacity-50"
         >
           {rolling ? 'Rolling...' : 'Roll Dice'}
         </button>
@@ -54,14 +54,14 @@ const DiceRoller = () => {
 // Color Generator Component
 const ColorGenerator = () => {
   const [palette, setPalette] = useState([
-    '#0C0C0C', '#2A1F40', '#7C3AED', '#A855F7', '#E9D5FF'
+    '#0C0C0C', '#241D30', '#BB98E5', '#E2BEF7', '#FFA07A'
   ]);
 
   const generatePalette = () => {
     const cyberColors = [
-      '#0C0C0C', '#1A122A', '#2E1A47', '#4C1D95', '#6D28D9',
-      '#7C3AED', '#8B5CF6', '#A855F7', '#C084FC', '#DDD6FE',
-      '#E9D5FF', '#64748B', '#94A3B8', '#CBD5E1', '#FFFFFF'
+      '#0C0C0C', '#181224', '#241D30', '#3A2C50',
+      '#BB98E5', '#C9A9EF', '#D7BAF5', '#EBDCF9', '#F5EDFC',
+      '#FFA07A', '#FFB08E', '#FF8F6B', '#94A3B8', '#CBD5E1', '#FFFFFF'
     ];
     const shuffled = [...cyberColors].sort(() => 0.5 - Math.random());
     setPalette(shuffled.slice(0, 5));
@@ -72,7 +72,7 @@ const ColorGenerator = () => {
   };
 
   return (
-    <div className="bg-[#120E1E]/80 rounded-3xl p-8 border border-[#A855F7]/30 backdrop-blur-md shadow-[0_0_30px_rgba(168,85,247,0.15)]">
+    <div className="bg-[#121118]/80 rounded-3xl p-8 border border-[#BB98E5]/20 backdrop-blur-md shadow-[0_0_30px_rgba(187,152,229,0.12)]">
       <div className="flex flex-col items-center gap-6">
         <div className="flex gap-4 w-full max-w-xl">
           {palette.map((color, i) => (
@@ -95,9 +95,9 @@ const ColorGenerator = () => {
         </div>
         <button
           onClick={generatePalette}
-          className="px-8 py-3 bg-gradient-to-r from-[#7C3AED] to-[#A855F7] text-white font-semibold rounded-full hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] transition-all"
+          className="px-8 py-3 bg-gradient-to-r from-[#BB98E5] to-[#FFA07A] text-[#0C0C0C] font-bold rounded-full hover:shadow-[0_0_20px_rgba(255,160,122,0.45)] transition-all"
         >
-          Generate Cyber Palette
+          Generate Luminous Palette
         </button>
       </div>
     </div>
@@ -113,21 +113,21 @@ const PlaygroundSection = () => {
       name: 'Pacman Mini-Game',
       description: 'Classic arcade fun built with React & Canvas',
       icon: '👾',
-      gradient: 'from-[#1A122A] to-[#3B1D66]',
+      gradient: 'from-[#181224] to-[#302046]',
     },
     {
       id: 'dice',
       name: 'Dice Roller',
       description: 'Simple physics simulation with random outcomes',
       icon: '🎲',
-      gradient: 'from-[#130E22] to-[#2E1848]',
+      gradient: 'from-[#181320] to-[#2E1E38]',
     },
     {
       id: 'colors',
       name: 'Palette Generator',
-      description: 'Generate cyberpunk & futuristic color schemes',
+      description: 'Generate soft lavender & warm sunset palettes',
       icon: '🎨',
-      gradient: 'from-[#0E0B1A] to-[#25153A]',
+      gradient: 'from-[#18141F] to-[#2F2133]',
     },
   ];
 
@@ -135,7 +135,7 @@ const PlaygroundSection = () => {
     <section
       id="playground"
       aria-labelledby="playground-heading"
-      className="bg-[#0C0C0C] border-t border-[#A855F7]/20 px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32"
+      className="bg-[#0C0C0C] border-t border-[#BB98E5]/18 px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32"
     >
       <div className="max-w-6xl mx-auto">
         <FadeIn delay={0} y={40}>
@@ -162,8 +162,8 @@ const PlaygroundSection = () => {
               onClick={() => setActiveGame(activeGame === game.id ? null : game.id)}
               className={`relative p-6 rounded-3xl bg-gradient-to-br ${game.gradient} border text-white text-left transition-all ${
                 activeGame === game.id
-                  ? 'border-[#C084FC] shadow-[0_0_25px_rgba(168,85,247,0.35)] scale-105'
-                  : 'border-[#A855F7]/25 hover:border-[#A855F7]/60 hover:scale-105'
+                  ? 'border-[#FFA07A] shadow-[0_0_25px_rgba(187,152,229,0.25)] scale-105'
+                  : 'border-[#BB98E5]/25 hover:border-[#FFA07A]/50 hover:scale-105'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -172,7 +172,7 @@ const PlaygroundSection = () => {
               <h3 className="font-bold text-xl mb-2 text-white">{game.name}</h3>
               <p className="text-sm text-[#CBD5E1]/80">{game.description}</p>
               {activeGame === game.id && (
-                <div className="absolute top-4 right-4 text-[#C084FC]">
+                <div className="absolute top-4 right-4 text-[#FFA07A]">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>

@@ -12,7 +12,7 @@ const App = () => {
     <>
       <a
         href="#about"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[1001] focus:rounded focus:bg-[#A855F7] focus:px-4 focus:py-2 focus:text-white"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[1001] focus:rounded focus:bg-[#BB98E5] focus:px-4 focus:py-2 focus:text-black font-semibold"
       >
         Skip to content
       </a>
@@ -55,7 +55,7 @@ const App = () => {
             <p>
               I am open to frontend developer roles, modern UI/UX design projects, and automated AI pipeline
               collaborations. Contact me directly at{' '}
-              <a href="mailto:shivangitripathi1392@gmail.com" className="text-[#C084FC] underline hover:text-white">
+              <a href="mailto:shivangitripathi1392@gmail.com" className="text-[#BB98E5] underline hover:text-[#FFA07A]">
                 shivangitripathi1392@gmail.com
               </a>.
             </p>
@@ -133,7 +133,7 @@ const App = () => {
         </section>
 
         {/* Footer */}
-        <footer className="bg-[#0C0C0C] border-t border-[#A855F7]/25 py-16 px-5 sm:px-8 md:px-10">
+        <footer className="bg-[#0C0C0C] border-t border-[#BB98E5]/18 py-16 px-5 sm:px-8 md:px-10">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="text-center md:text-left">
@@ -148,7 +148,7 @@ const App = () => {
                   href="https://www.instagram.com/kahaniverse329/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#94A3B8] hover:text-[#C084FC] hover:scale-110 transition-all"
+                  className="text-[#94A3B8] hover:text-[#FFA07A] hover:scale-110 transition-all"
                   aria-label="Instagram Profile (@kahaniverse329)"
                   title="Instagram (@kahaniverse329) - 100K+ Views"
                 >
@@ -162,7 +162,7 @@ const App = () => {
                   href="https://github.com/Shivangilovestycy"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#94A3B8] hover:text-white hover:scale-110 transition-all"
+                  className="text-[#94A3B8] hover:text-[#FFA07A] hover:scale-110 transition-all"
                   aria-label="GitHub Profile"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -175,7 +175,7 @@ const App = () => {
                   href="https://linkedin.com/in/shivangi-tripathi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#94A3B8] hover:text-[#C084FC] hover:scale-110 transition-all"
+                  className="text-[#94A3B8] hover:text-[#FFA07A] hover:scale-110 transition-all"
                   aria-label="LinkedIn Profile"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -196,18 +196,18 @@ const App = () => {
               </div>
             </div>
 
-            <div className="mt-12 pt-8 border-t border-[#A855F7]/15 text-center">
+            <div className="mt-12 pt-8 border-t border-[#BB98E5]/15 text-center">
               <nav className="footer-nav" aria-label="Footer">
-                <a href="#about" className="text-[#94A3B8] hover:text-[#C084FC]">About</a>
-                <a href="#services" className="text-[#94A3B8] hover:text-[#C084FC]">Services</a>
-                <a href="#projects" className="text-[#94A3B8] hover:text-[#C084FC]">Projects</a>
-                <a href="#playground" className="text-[#94A3B8] hover:text-[#C084FC]">Playground</a>
-                <a href="https://www.instagram.com/kahaniverse329/" target="_blank" rel="noopener noreferrer" className="text-[#C084FC] hover:text-white">Instagram</a>
+                <a href="#about" className="text-[#94A3B8] hover:text-[#FFA07A]">About</a>
+                <a href="#services" className="text-[#94A3B8] hover:text-[#FFA07A]">Services</a>
+                <a href="#projects" className="text-[#94A3B8] hover:text-[#FFA07A]">Projects</a>
+                <a href="#playground" className="text-[#94A3B8] hover:text-[#FFA07A]">Playground</a>
+                <a href="https://www.instagram.com/kahaniverse329/" target="_blank" rel="noopener noreferrer" className="text-[#FFA07A] hover:text-white">Instagram</a>
                 <a href="https://github.com/Shivangilovestycy" target="_blank" rel="noopener noreferrer" className="text-[#94A3B8] hover:text-white">GitHub</a>
                 <a href="mailto:shivangitripathi1392@gmail.com" className="text-[#94A3B8] hover:text-white">Email</a>
               </nav>
               <p className="text-[#64748B] font-light text-sm mt-4">
-                © {new Date().getFullYear()} Shivangi Tripathi · Built with React + Vite + Cyberpunk Motion
+                © {new Date().getFullYear()} Shivangi Tripathi · Built with React + Vite + Luminous Soft Violet
               </p>
             </div>
           </div>
