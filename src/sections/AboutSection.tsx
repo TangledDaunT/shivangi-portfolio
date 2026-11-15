@@ -73,28 +73,28 @@ const AboutSection = () => {
 
         {/* Philosophy Section */}
         <FadeIn delay={0.2} y={40}>
-          <div className="bg-[#0C0C0C] border-2 border-[#D7E2EA]/20 rounded-3xl p-8 sm:p-10 md:p-12 max-w-3xl">
+          <div className="bg-[#120E1E]/80 border border-[#A855F7]/30 rounded-3xl p-8 sm:p-10 md:p-12 max-w-3xl backdrop-blur-sm shadow-[0_0_30px_rgba(168,85,247,0.12)]">
             <div className="flex items-start gap-4 mb-6">
-              <div className="p-3 bg-gradient-to-br from-[#646973] to-[#BBCCD7] rounded-2xl">
-                <svg className="w-6 h-6 text-[#0C0C0C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="p-3 bg-gradient-to-br from-[#7C3AED] to-[#C084FC] rounded-2xl shadow-[0_0_20px_rgba(168,85,247,0.4)]">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-[#D7E2EA] font-semibold text-xl mb-2">Engineering Philosophy</h3>
-                <p className="text-[#D7E2EA]/60 font-light text-sm italic">"Logic decides, language explains"</p>
+                <h3 className="text-white font-semibold text-xl mb-2">Development Philosophy</h3>
+                <p className="text-[#C084FC] font-light text-sm italic">"Clean logic, expressive UI, automated execution"</p>
               </div>
             </div>
 
-            <div className="space-y-3 text-[#D7E2EA]/70 font-light leading-relaxed">
+            <div className="space-y-3 text-[#CBD5E1]/80 font-light leading-relaxed">
               <p>
-                <strong className="text-[#D7E2EA] font-semibold">Reliability-first approach:</strong> Every system I build is designed for production from day one. This means proper error handling, monitoring, and graceful degradation—not optimistic assumptions.
+                <strong className="text-white font-semibold">User-first interfaces:</strong> Every web experience is built with responsive fluid interactions, intuitive information hierarchy, and performance that feels immediate on every screen.
               </p>
               <p>
-                <strong className="text-[#D7E2EA] font-semibold">Pragmatic AI integration:</strong> I combine deterministic systems with LLMs where they add value, not as a default solution. Understanding when to use rules vs. models is crucial for building maintainable AI applications.
+                <strong className="text-white font-semibold">Autonomous AI workflows:</strong> From scripting narrative stories to self-optimizing video pipelines (surpassing 100K+ views on Instagram), I leverage AI automation where it unlocks scale, consistency, and real audience engagement.
               </p>
               <p>
-                <strong className="text-[#D7E2EA] font-semibold">End-to-end ownership:</strong> From hardware sensors to cloud deployments, I believe in understanding the full stack. This holistic view enables better debugging, optimization, and system design.
+                <strong className="text-white font-semibold">Reliability and detail:</strong> Whether designing frontend design systems or architecting server integrations, I focus on solid code structure, clean state management, and polished aesthetics.
               </p>
             </div>
           </div>
@@ -104,8 +104,8 @@ const AboutSection = () => {
         <div className="w-full">
           <FadeIn delay={0.25} y={40}>
             <div className="text-center mb-8">
-              <h3 className="text-[#D7E2EA] font-semibold text-2xl mb-2">My Journey</h3>
-              <p className="text-[#D7E2EA]/50 font-light">Key milestones in my path as an AI Systems Engineer</p>
+              <h3 className="text-white font-semibold text-2xl mb-2">My Journey</h3>
+              <p className="text-[#94A3B8] font-light">Key milestones in my path as a Software Developer &amp; Creator</p>
             </div>
           </FadeIn>
           <Timeline />

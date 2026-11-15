@@ -3,42 +3,46 @@ import FadeIn from '../components/FadeIn';
 const services = [
   {
     number: '01',
-    name: 'AI Systems',
+    name: 'Autonomous AI Pipelines',
     description:
-      'Building production RAG pipelines, vector search workflows, and deterministic evaluation loops for reliable, real-world AI applications.',
+      'Designing script-to-video automation engines, generative media workflows, and API-driven distribution pipelines with real-time analytics feedback loops (e.g. @kahaniverse329).',
   },
   {
     number: '02',
-    name: 'Full Stack',
+    name: 'Frontend Engineering',
     description:
-      'End-to-end systems with fast iteration, clean APIs, and polished user experiences — from React frontends to FastAPI backends.',
+      'Crafting high-performance, responsive web interfaces with React, Vite, Next.js, and TypeScript, featuring smooth motion graphics and fluid micro-interactions.',
   },
   {
     number: '03',
-    name: 'Automation & IoT',
+    name: 'UI/UX Design Systems',
     description:
-      'Real-time sensor systems, ESP32 device control, and dependable hardware-software automation flows for smart environments.',
+      'Building aesthetic, modern, and accessible design systems in Figma and Tailwind CSS with crisp typography, thoughtful spacing, and cyber-minimalist layouts.',
   },
   {
     number: '04',
-    name: 'LLM Architecture',
+    name: 'Interactive Web Apps',
     description:
-      'Designing multi-agent workflows, prompt pipelines, and orchestration layers using LangChain, LangGraph, and custom tooling.',
+      'Developing full-featured client applications—from campus matchmaking (Cupid) to intelligent personal budgeting and real-time expense analytics.',
   },
   {
     number: '05',
-    name: 'Web Development',
+    name: 'AI Diagnostics & Computer Vision',
     description:
-      'Modern, performant web applications built with React, Next.js, TypeScript, and Tailwind — shipped fast and built to last.',
+      'Integrating machine learning models and computer vision pipelines into browser-based user experiences for instant recommendations and real-time inference.',
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section id="services" aria-labelledby="services-heading" className="bg-white rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32">
+    <section
+      id="services"
+      aria-labelledby="services-heading"
+      className="bg-[#0C0C0C] border-t border-[#A855F7]/20 px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32"
+    >
       <h2
         id="services-heading"
-        className="text-[#0C0C0C] font-black uppercase text-center mb-16 sm:mb-20 md:mb-28"
+        className="hero-heading font-black uppercase text-center mb-16 sm:mb-20 md:mb-28"
         style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
       >
         Services
@@ -52,25 +56,25 @@ const ServicesSection = () => {
               style={{
                 borderBottom:
                   i < services.length - 1
-                    ? '1px solid rgba(12, 12, 12, 0.15)'
+                    ? '1px solid rgba(168, 85, 247, 0.15)'
                     : 'none',
               }}
             >
               <span
-                className="font-black text-[#0C0C0C] leading-none flex-shrink-0"
+                className="font-black leading-none flex-shrink-0 bg-gradient-to-br from-[#E9D5FF] via-[#C084FC] to-[#7C3AED] bg-clip-text text-transparent"
                 style={{ fontSize: 'clamp(3rem, 10vw, 140px)' }}
               >
                 {s.number}
               </span>
               <div className="flex flex-col justify-center gap-2 pt-2 sm:pt-4">
                 <h3
-                  className="font-medium uppercase text-[#0C0C0C]"
+                  className="font-semibold uppercase text-white tracking-wide"
                   style={{ fontSize: 'clamp(1rem, 2.2vw, 2.1rem)' }}
                 >
                   {s.name}
                 </h3>
                 <p
-                  className="font-light leading-relaxed max-w-2xl text-[#0C0C0C] opacity-60"
+                  className="font-light leading-relaxed max-w-2xl text-[#94A3B8]"
                   style={{ fontSize: 'clamp(0.85rem, 1.6vw, 1.25rem)' }}
                 >
                   {s.description}

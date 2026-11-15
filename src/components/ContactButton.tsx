@@ -8,14 +8,13 @@ const ContactButton: React.FC<ContactButtonProps> = ({ className = '' }) => {
   return (
     <a
       href="mailto:shivangitripathi1392@gmail.com"
-      className={`inline-flex items-center justify-center rounded-full px-8 py-3 sm:px-10 sm:py-3.5 md:px-12 md:py-4 text-xs sm:text-sm md:text-base font-medium uppercase tracking-widest text-white cursor-pointer transition-transform duration-200 hover:scale-105 ${className}`}
+      className={`inline-flex items-center justify-center rounded-full px-8 py-3.5 sm:px-10 sm:py-4 text-xs sm:text-sm font-semibold uppercase tracking-widest text-white cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] ${className}`}
       style={{
         background:
-          'linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)',
+          'linear-gradient(135deg, #180D2C 0%, #7C3AED 50%, #A855F7 100%)',
+        border: '1px solid rgba(192, 132, 252, 0.5)',
         boxShadow:
-          '0px 4px 4px rgba(181, 1, 167, 0.25), 4px 4px 12px #7721B1 inset',
-        outline: '2px solid white',
-        outlineOffset: '-3px',
+          '0 4px 20px rgba(168, 85, 247, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25)',
       }}
     >
       Contact Me

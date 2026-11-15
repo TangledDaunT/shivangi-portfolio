@@ -20,7 +20,7 @@ const StatsCard: React.FC<StatsCardProps> = ({
 }) => {
   return (
     <motion.div
-      className="bg-[#0C0C0C] border-2 border-[#D7E2EA]/20 rounded-3xl p-6 sm:p-8 md:p-10 hover:border-[#D7E2EA]/40 transition-colors duration-300"
+      className="bg-[#120E1E]/80 border border-[#A855F7]/25 rounded-3xl p-6 sm:p-8 md:p-10 hover:border-[#A855F7]/60 hover:shadow-[0_0_30px_rgba(168,85,247,0.18)] transition-all duration-300 backdrop-blur-sm"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
@@ -28,14 +28,14 @@ const StatsCard: React.FC<StatsCardProps> = ({
     >
       <div className="flex flex-col gap-3">
         <div className="flex items-baseline gap-1">
-          <span className="hero-heading font-black text-[#D7E2EA]" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)' }}>
+          <span className="hero-heading font-black" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)' }}>
             <AnimatedCounter value={value} prefix={prefix} suffix={suffix} duration={2} delay={delay} />
           </span>
         </div>
-        <h3 className="text-[#D7E2EA] font-semibold uppercase tracking-wide text-sm sm:text-base">
+        <h3 className="text-white font-semibold uppercase tracking-wide text-sm sm:text-base">
           {label}
         </h3>
-        <p className="text-[#D7E2EA]/60 font-light text-sm leading-relaxed">
+        <p className="text-[#94A3B8] font-light text-sm leading-relaxed">
           {description}
         </p>
       </div>

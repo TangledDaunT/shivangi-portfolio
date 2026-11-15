@@ -15,23 +15,23 @@ const EducationSection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           <FadeIn delay={0.1} y={30}>
-            <div className="bg-[#0C0C0C] border-2 border-[#D7E2EA]/20 rounded-3xl p-6 sm:p-8 h-full">
-              <h3 className="text-[#D7E2EA] font-semibold text-lg mb-2">B.Tech in CAC (Computer Applications)</h3>
-              <p className="text-[#D7E2EA]/60 font-light">Galgotias University, 3rd Year · CGPA: 7.8</p>
+            <div className="bg-[#120E1E]/80 border border-[#A855F7]/25 rounded-3xl p-6 sm:p-8 h-full hover:border-[#A855F7]/50 hover:shadow-[0_0_25px_rgba(168,85,247,0.15)] transition-all backdrop-blur-sm">
+              <h3 className="text-white font-semibold text-lg mb-2">B.Tech in CAC (Computer Applications)</h3>
+              <p className="text-[#94A3B8] font-light">Galgotias University, 3rd Year · CGPA: 7.8</p>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.2} y={30}>
-            <div className="bg-[#0C0C0C] border-2 border-[#D7E2EA]/20 rounded-3xl p-6 sm:p-8 h-full">
-              <h3 className="text-[#D7E2EA] font-semibold text-lg mb-2">Frontend Developer Intern</h3>
-              <p className="text-[#D7E2EA]/60 font-light">Savvy Technologies · Web Design &amp; UI Engineering</p>
+            <div className="bg-[#120E1E]/80 border border-[#A855F7]/25 rounded-3xl p-6 sm:p-8 h-full hover:border-[#A855F7]/50 hover:shadow-[0_0_25px_rgba(168,85,247,0.15)] transition-all backdrop-blur-sm">
+              <h3 className="text-white font-semibold text-lg mb-2">Frontend Developer Intern</h3>
+              <p className="text-[#94A3B8] font-light">Savvy Technologies · Web Design &amp; UI Engineering</p>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.3} y={30}>
-            <div className="bg-[#0C0C0C] border-2 border-[#D7E2EA]/20 rounded-3xl p-6 sm:p-8 h-full">
-              <h3 className="text-[#D7E2EA] font-semibold text-lg mb-2">Interactive Web &amp; AI Systems</h3>
-              <p className="text-[#D7E2EA]/60 font-light">Modern React, Tailwind CSS &amp; Smart UI Architecture</p>
+            <div className="bg-[#120E1E]/80 border border-[#A855F7]/25 rounded-3xl p-6 sm:p-8 h-full hover:border-[#A855F7]/50 hover:shadow-[0_0_25px_rgba(168,85,247,0.15)] transition-all backdrop-blur-sm">
+              <h3 className="text-white font-semibold text-lg mb-2">Autonomous AI &amp; Web Systems</h3>
+              <p className="text-[#94A3B8] font-light">Video Automation Pipelines (100K+ Views) &amp; React UIs</p>
             </div>
           </FadeIn>
         </div>

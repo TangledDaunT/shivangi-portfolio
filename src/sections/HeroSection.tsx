@@ -1,8 +1,5 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import FadeIn from '../components/FadeIn';
-import Magnet from '../components/Magnet';
-import ContactButton from '../components/ContactButton';
 import { profileImageUrl } from '../lib/cloudinary';
 
 const HeroSection = () => {
@@ -12,278 +9,106 @@ const HeroSection = () => {
     offset: ['start start', 'end start'],
   });
 
-  // Parallax transforms
-  const opacity = useTransform(scrollYProgress, [0, 0.65, 1], [1, 0.25, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.9, 0.75]);
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const opacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.3, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
   return (
     <section
       ref={heroRef}
       id="hero"
-      className="min-h-screen flex flex-col relative overflow-hidden"
-      style={{ overflowX: 'clip' }}
+      className="min-h-screen w-full relative flex flex-col items-center justify-between overflow-hidden"
+      style={{ overflowX: 'clip', background: '#0C0C0C' }}
     >
-      {/* Animated SVG Background */}
-      <svg
-        className="absolute inset-0 w-full h-full pointer-events-none"
-        style={{ position: 'absolute', top: 0, left: 0 }}
-      >
-        <defs>
-          <linearGradient id="particleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#646973" />
-            <stop offset="100%" stopColor="#BBCCD7" />
-          </linearGradient>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-            <feMerge>
-              <feMergeNode in="coloredBlur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
-        {/* Animated orbs */}
-        {[...Array(12)].map((_, i) => (
-          <motion.circle
-            key={i}
-            cx={`${15 + (i % 4) * 25}%`}
-            cy={`${15 + Math.floor(i / 4) * 30}%`}
-            r={3 + (i % 3)}
-            fill="url(#particleGrad)"
-            opacity={0.4 + (i % 3) * 0.15}
-            filter="url(#glow)"
-            animate={{
-              y: [0, -30, 0],
-              x: [0, i % 2 === 0 ? 20 : -20, 0],
-            }}
-            transition={{
-              duration: 6 + i * 0.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.3,
-            }}
+      {/* Futuristic Cyberpunk Background */}
+      <div className="absolute inset-0 z-0">
+        <picture>
+          <source srcSet="/hero-bg.webp" type="image/webp" />
+          <img
+            src="/hero-bg.jpg"
+            alt="Futuristic cyber background"
+            className="w-full h-full object-cover object-center pointer-events-none select-none"
           />
-        ))}
+        </picture>
+        {/* Subtle bottom vignette blending smoothly into the next section */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-[#0C0C0C] pointer-events-none" />
+      </div>
 
-        {/* Connecting lines */}
-        {[...Array(8)].map((_, i) => (
-          <motion.line
-            key={`line-${i}`}
-            x1={`${10 + (i % 4) * 28}%`}
-            y1={`${25 + Math.floor(i / 4) * 50}%`}
-            x2={`${38 + (i % 4) * 28}%`}
-            y2={`${25 + Math.floor(i / 4) * 50}%`}
-            stroke="url(#particleGrad)"
-            strokeWidth="0.5"
-            opacity={0.15}
-            animate={{
-              opacity: [0.15, 0.3, 0.15],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.2,
-            }}
-          />
-        ))}
-
-        {/* Rotating geometric shapes */}
-        <motion.g
-          style={{ transformOrigin: '50% 50%' }}
-          animate={{ rotate: 360 }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+      {/* Sleek Top Navigation */}
+      <header className="w-full relative z-20 flex justify-between items-center px-6 sm:px-10 py-6">
+        <a
+          href="#hero"
+          className="text-xs uppercase tracking-widest text-[#E9D5FF]/70 font-mono hover:text-white transition-colors"
         >
-          <circle
-            cx="50%"
-            cy="50%"
-            r="180"
-            fill="none"
-            stroke="url(#particleGrad)"
-            strokeWidth="0.5"
-            opacity={0.2}
-            strokeDasharray="10, 20"
-          />
-          <circle
-            cx="50%"
-            cy="50%"
-            r="220"
-            fill="none"
-            stroke="url(#particleGrad)"
-            strokeWidth="0.3"
-            opacity={0.15}
-            strokeDasharray="5, 15"
-          />
-        </motion.g>
-
-        <motion.g
-          style={{ transformOrigin: '50% 50%' }}
-          animate={{ rotate: -360 }}
-          transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
-        >
-          <svg x="0" y="0" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <polygon
-              points="50,30 70,50 50,70 30,50"
-              fill="none"
-              stroke="url(#particleGrad)"
-              strokeWidth="0.5"
-              opacity={0.1}
-            />
-          </svg>
-        </motion.g>
-      </svg>
-
-      {/* Navbar */}
-      <FadeIn delay={0} y={-20}>
-        <motion.nav className="flex justify-between items-center px-6 md:px-10 pt-6 md:pt-8 relative z-20" style={{ y: y1 }}>
-          <a
-            href="#about"
-            className="text-[#D7E2EA] font-medium uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] hover:opacity-70 transition-opacity duration-200"
-          >
+          SHIVANGI.DEV
+        </a>
+        <nav className="flex items-center gap-4 sm:gap-8 text-xs sm:text-sm font-medium uppercase tracking-wider text-[#CBD5E1]">
+          <a href="#about" className="hover:text-[#C084FC] transition-colors">
             About
           </a>
-          <a
-            href="#services"
-            className="text-[#D7E2EA] font-medium uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] hover:opacity-70 transition-opacity duration-200"
-          >
-            Services
-          </a>
-          <a
-            href="#projects"
-            className="text-[#D7E2EA] font-medium uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] hover:opacity-70 transition-opacity duration-200"
-          >
+          <a href="#projects" className="hover:text-[#C084FC] transition-colors">
             Projects
           </a>
-          <a
-            href="#playground"
-            className="text-[#D7E2EA] font-medium uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] hover:opacity-70 transition-opacity duration-200"
-          >
+          <a href="#services" className="hover:text-[#C084FC] transition-colors">
+            Services
+          </a>
+          <a href="#playground" className="hover:text-[#C084FC] transition-colors">
             Playground
           </a>
-        </motion.nav>
-      </FadeIn>
-
-      {/* Hero Content Area */}
-      <motion.div className="flex-1 flex flex-col justify-between relative" style={{ y: y2 }}>
-        {/* Hero Heading */}
-        <FadeIn delay={0.15} y={40}>
-          <div className="overflow-hidden mt-8 sm:mt-6 md:mt-0">
-            <h1
-              className="hero-heading font-black uppercase tracking-tight leading-[0.9] text-center w-full relative z-10"
-              style={{ fontSize: 'clamp(10vw, 10vw, 10vw)' }}
-            >
-              <span className="inline-block">Hi, i&apos;m </span>
-              <span className="inline-block" style={{ color: '#BBCCD7' }}>shivangi</span>
-            </h1>
-          </div>
-        </FadeIn>
-
-        {/* Hero Portrait - Centered */}
-        <div className="flex-1 flex items-center justify-center relative">
-          <FadeIn
-            delay={0.6}
-            y={30}
+          <a
+            href="https://www.instagram.com/kahaniverse329/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3 py-1 rounded-full border border-[#C084FC]/50 text-[#C084FC] hover:bg-[#C084FC]/10 hover:text-white transition-all text-xs"
           >
-            <motion.div style={{ opacity, scale }}>
-              <Magnet
-                padding={150}
-                strength={3}
-                activeTransition="transform 0.3s ease-out"
-                inactiveTransition="transform 0.6s ease-in-out"
-              >
-                <div className="relative flex items-center justify-center">
-                  {/* Rotating SVG rings around photo */}
-                  <svg
-                    className="absolute"
-                    style={{
-                      width: '320px',
-                      height: '320px',
-                      maxWidth: '90vw',
-                      maxHeight: '90vw'
-                    }}
-                  >
-                    <defs>
-                      <linearGradient id="ringGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#646973" />
-                        <stop offset="100%" stopColor="#BBCCD7" />
-                      </linearGradient>
-                    </defs>
-                    <motion.circle
-                      cx="50%"
-                      cy="50%"
-                      r="48%"
-                      fill="none"
-                      stroke="url(#ringGrad1)"
-                      strokeWidth="1.5"
-                      opacity={0.4}
-                      style={{ transformOrigin: '50% 50%' }}
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                    />
-                    <motion.circle
-                      cx="50%"
-                      cy="50%"
-                      r="45%"
-                      fill="none"
-                      stroke="url(#ringGrad1)"
-                      strokeWidth="1"
-                      opacity={0.3}
-                      strokeDasharray="8, 12"
-                      style={{ transformOrigin: '50% 50%' }}
-                      animate={{ rotate: -360 }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    />
-                  </svg>
+            Instagram
+          </a>
+        </nav>
+      </header>
 
-                  {/* Photo */}
-                  <img
-                    src={profileImageUrl}
-                    alt="Shivangi Tripathi, Software Developer and Frontend Engineer"
-                    className="relative w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] object-contain pointer-events-none select-none rounded-full"
-                    style={{ maxWidth: '85vw' }}
-                    draggable={false}
-                  />
-                </div>
-              </Magnet>
-            </motion.div>
-          </FadeIn>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="flex flex-col items-center gap-6 pb-7 sm:pb-8 md:pb-10 relative z-10">
-          <FadeIn delay={0.35} y={20}>
-            <p
-              className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug text-center max-w-[360px] sm:max-w-[460px] md:max-w-[520px]"
-              style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
-            >
-              a software developer driven by building intuitive, modern and reliable web systems
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.5} y={20}>
-            <ContactButton />
-          </FadeIn>
-        </div>
-      </motion.div>
-
-      {/* Scroll Indicator */}
+      {/* Centered Hero Content */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.6 }}
+        className="flex-1 w-full max-w-5xl mx-auto flex flex-col items-center justify-center relative z-10 px-4 py-4"
+        style={{ opacity, scale }}
       >
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-[#D7E2EA]/40 text-xs uppercase tracking-widest">Scroll</span>
-          <motion.div
-            className="w-px h-12 bg-gradient-to-b from-[#D7E2EA]/40 to-transparent"
-            initial={{ scaleY: 0 }}
-            animate={{ scaleY: 1 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
+        {/* Hero Heading: "I am Shivangi, and this is my portfolio." */}
+        <motion.div
+          initial={{ opacity: 0, y: -25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-center mb-4 sm:mb-6"
+        >
+          <h1 className="font-black uppercase tracking-tight leading-tight">
+            <span className="block text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
+              I am Shivangi,
+            </span>
+            <span className="block bg-gradient-to-r from-[#F3E8FF] via-[#C084FC] to-[#A855F7] bg-clip-text text-transparent text-xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mt-1 drop-shadow-[0_2px_16px_rgba(168,85,247,0.5)]">
+              and this is my portfolio.
+            </span>
+          </h1>
+        </motion.div>
+
+        {/* Shivangi's Centered Isolated Photo with Cyber Ambient Glow */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+          className="relative flex items-center justify-center"
+        >
+          {/* Subtle violet ambient backlight aura */}
+          <div className="absolute w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] md:w-[360px] md:h-[360px] rounded-full bg-[#A855F7]/25 blur-3xl pointer-events-none" />
+
+          {/* Centered Portrait */}
+          <img
+            src={profileImageUrl}
+            alt="Shivangi Tripathi, Software Developer"
+            className="relative w-[210px] sm:w-[270px] md:w-[320px] lg:w-[350px] max-h-[52vh] object-contain pointer-events-none select-none drop-shadow-[0_12px_40px_rgba(168,85,247,0.45)]"
+            draggable={false}
           />
-        </div>
+        </motion.div>
       </motion.div>
+
+      {/* Spacer to balance bottom */}
+      <div className="h-6 relative z-10" />
     </section>
   );
 };

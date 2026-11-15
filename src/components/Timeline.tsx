@@ -38,7 +38,7 @@ const Timeline = () => {
   return (
     <div className="relative max-w-4xl mx-auto px-4">
       {/* Vertical line */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-gradient-to-b from-transparent via-[#D7E2EA]/30 to-transparent" />
+      <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-gradient-to-b from-transparent via-[#A855F7]/40 to-transparent" />
 
       {timelineEvents.map((event, index) => (
         <motion.div
@@ -53,16 +53,16 @@ const Timeline = () => {
         >
           {/* Content Card */}
           <div className={`flex-1 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-            <div className="bg-[#0C0C0C] border-2 border-[#D7E2EA]/20 rounded-2xl p-6 hover:border-[#D7E2EA]/40 transition-all duration-300">
-              <span className="text-[#D7E2EA]/50 font-bold text-xl">{event.year}</span>
-              <h3 className="text-[#D7E2EA] font-semibold text-xl mt-2 mb-3">{event.title}</h3>
-              <p className="text-[#D7E2EA]/70 font-light leading-relaxed">{event.description}</p>
+            <div className="bg-[#120E1E]/80 border border-[#A855F7]/25 rounded-2xl p-6 hover:border-[#A855F7]/60 hover:shadow-[0_0_25px_rgba(168,85,247,0.18)] transition-all duration-300 backdrop-blur-sm">
+              <span className="text-[#C084FC] font-bold text-xl">{event.year}</span>
+              <h3 className="text-white font-semibold text-xl mt-2 mb-3">{event.title}</h3>
+              <p className="text-[#94A3B8] font-light leading-relaxed">{event.description}</p>
             </div>
           </div>
 
           {/* Icon Circle */}
           <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#646973] to-[#BBCCD7] flex items-center justify-center text-[#0C0C0C]">
+            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#7C3AED] to-[#C084FC] shadow-[0_0_20px_rgba(168,85,247,0.4)] flex items-center justify-center text-white">
               {iconMap[event.icon]}
             </div>
           </div>

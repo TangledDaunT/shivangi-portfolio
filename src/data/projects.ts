@@ -13,6 +13,18 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    name: 'KahaniVerse (@kahaniverse329)',
+    description: 'Autonomous AI storytelling platform & automated video pipeline with 100K+ views on Instagram. Shivangi authors the story scripts, while an end-to-end AI automation renders video scenes, compiles voiceover, publishes directly to Instagram, and analyzes performance data.',
+    tech: ['Python', 'AI Video Generation', 'Instagram Graph API', 'LLM Story Engine', 'Analytics Feedback Loop'],
+    stars: 100,
+    url: 'https://www.instagram.com/kahaniverse329/',
+    liveUrl: 'https://www.instagram.com/kahaniverse329/',
+    category: 'featured',
+    isNew: true,
+    highlights: ['100K+ Total Views', 'Autonomous Publishing', 'AI Video Generation', 'Performance Analytics Loop'],
+    longDescription: 'An automated AI-driven storytelling engine and content ecosystem built around @kahaniverse329. Shivangi writes the original story narratives; the custom automated pipeline then orchestrates AI scene generation, voice synthesis, video compilation, and autonomous scheduled publishing to Instagram. The system continuously queries post performance metrics via API, providing automated insights and iterative recommendations on hooks and pacing.',
+  },
+  {
     name: 'Cupid — University Matchmaker',
     description: 'Campus dating web platform built for Galgotias University students with smooth UI transitions and secure matching.',
     tech: ['React', 'Tailwind CSS', 'TypeScript', 'Node.js'],
@@ -220,10 +232,10 @@ export const categoryLabels: Record<Project['category'], string> = {
 };
 
 export const categoryColors: Record<Project['category'], string> = {
-  featured: '#B600A8',
-  production: '#1E40AF',
-  iot: '#059669',
-  automation: '#DC2626',
-  experiment: '#F59E0B',
-  coursework: '#6B7280',
+  featured: '#C084FC',
+  production: '#A855F7',
+  iot: '#94A3B8',
+  automation: '#DDD6FE',
+  experiment: '#64748B',
+  coursework: '#CBD5E1',
 };
