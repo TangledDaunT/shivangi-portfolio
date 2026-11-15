@@ -1,120 +1,135 @@
 import FadeIn from '../components/FadeIn';
-import AnimatedText from '../components/AnimatedText';
-import ContactButton from '../components/ContactButton';
 import Timeline from '../components/Timeline';
 import StatsCard from '../components/StatsCard';
 import { portfolioStats } from '../data/stats';
+import { PixelHeart, PixelStar, PixelFlower, PixelSparkle } from '../components/PixelArt';
 
 const AboutSection = () => {
   return (
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="relative min-h-screen flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-20 sm:py-32 md:py-40"
-      style={{ background: '#0C0C0C' }}
+      className="relative flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-20 sm:py-28 md:py-36 overflow-hidden"
     >
-      {/* Decorative corner images */}
-      <FadeIn
-        delay={0.1}
-        x={-80}
-        y={0}
-        duration={0.9}
-        className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] pointer-events-none"
-      >
-        <img
-          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png"
-          alt="Decorative moon icon"
-          className="w-[120px] sm:w-[160px] md:w-[210px] opacity-30"
-        />
-      </FadeIn>
+      {/* Funky Background Accents */}
+      <div className="absolute -top-10 -left-10 w-96 h-96 bg-[#BB98E5]/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 -right-10 w-96 h-96 bg-[#FFA07A]/15 rounded-full blur-3xl pointer-events-none" />
+
+      {/* Floating Pixel Stickers */}
+      <div className="absolute top-16 left-6 sm:left-12 opacity-80 pointer-events-none animate-bounce [animation-duration:3s]">
+        <PixelFlower size={36} />
+      </div>
+      <div className="absolute top-28 right-8 sm:right-16 opacity-80 pointer-events-none animate-pulse">
+        <PixelSparkle size={26} />
+      </div>
 
       {/* Center content */}
-      <div className="flex flex-col items-center gap-16 sm:gap-20 md:gap-24 z-10 max-w-6xl mx-auto">
-        {/* Heading */}
-        <FadeIn delay={0} y={40}>
-          <h2
-            id="about-heading"
-            className="hero-heading font-black uppercase leading-none tracking-tight text-center"
-            style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
-          >
-            About me
-          </h2>
+      <div className="flex flex-col items-center gap-14 sm:gap-18 md:gap-20 z-10 max-w-6xl mx-auto w-full">
+        {/* Section Tag & Heading */}
+        <FadeIn delay={0} y={30}>
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FAF5FF] border border-[#BB98E5]/40 text-[#7C3AED] text-xs font-bold uppercase tracking-widest mb-3">
+              <PixelHeart size={14} />
+              <span>Get to Know Shivangi</span>
+            </div>
+            <h2
+              id="about-heading"
+              className="text-[#0F172A] font-black uppercase leading-none tracking-tight text-center"
+              style={{ fontSize: 'clamp(2.75rem, 10vw, 140px)' }}
+            >
+              About me
+            </h2>
+          </div>
         </FadeIn>
 
-        {/* Bio */}
-        <div className="max-w-3xl text-center">
-          <FadeIn delay={0.1} y={30}>
-            <div style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)' }}>
-              <p className="text-[#D7E2EA] font-medium text-center leading-relaxed">
-                I&apos;m Shivangi Tripathi, a frontend engineer and software developer. Currently pursuing my 3rd year B.Tech in Computer Applications & Computing (CAC) at Galgotias University, I focus on crafting interactive, modern web interfaces and practical AI tools.
-              </p>
+        {/* Bio Card */}
+        <FadeIn delay={0.1} y={30} className="w-full max-w-4xl">
+          <div className="bg-white/90 border-2 border-[#BB98E5]/30 rounded-3xl p-7 sm:p-10 shadow-[0_12px_40px_rgba(187,152,229,0.12)] backdrop-blur-md">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="w-3 h-3 rounded-full bg-[#BB98E5]" />
+              <span className="w-3 h-3 rounded-full bg-[#FFA07A]" />
+              <span className="w-3 h-3 rounded-full bg-[#6EE7B7]" />
+              <span className="text-xs font-mono text-slate-400 ml-2">shivangi.dev / bio</span>
             </div>
-          </FadeIn>
-        </div>
+            <p className="text-slate-700 text-base sm:text-lg md:text-xl font-normal leading-relaxed mb-6">
+              I&apos;m <span className="font-bold text-[#1E1B4B]">Shivangi Tripathi</span>, a software developer and frontend engineer. Currently in my 3rd year pursuing B.Tech in Computer Applications &amp; Computing (CAC) at <span className="font-semibold text-[#7C3AED]">Galgotias University (7.8 CGPA)</span>, I focus on crafting interactive, modern web interfaces and practical AI automation pipelines.
+            </p>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Previously, I interned at <span className="font-semibold text-[#EA580C]">Savvy Technologies</span> as a Frontend Developer &amp; Website Designer. Beyond core software, I architect end-to-end AI video pipelines, including my project <span className="font-semibold text-[#7C3AED]">@kahaniverse329</span> which surpassed <span className="font-bold text-[#EA580C]">100K+ views on Instagram</span> with automated generation, scheduling, and analytics feedback.
+            </p>
 
-        {/* Stats Grid */}
-        <div className="w-full max-w-5xl">
-          <FadeIn delay={0.15} y={40}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-              {portfolioStats.slice(0, 6).map((stat, index) => (
-                <StatsCard
-                  key={stat.label}
-                  value={stat.value}
-                  prefix={stat.prefix}
-                  suffix={stat.suffix}
-                  label={stat.label}
-                  description={stat.description}
-                  delay={index * 0.1}
-                />
-              ))}
-            </div>
-          </FadeIn>
-        </div>
-
-        {/* Philosophy Section */}
-        <FadeIn delay={0.2} y={40}>
-          <div className="bg-[#121118]/80 border border-[#BB98E5]/20 rounded-3xl p-8 sm:p-10 md:p-12 max-w-3xl backdrop-blur-sm shadow-[0_0_30px_rgba(187,152,229,0.1)]">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="p-3 bg-gradient-to-br from-[#BB98E5] to-[#FFA07A] rounded-2xl shadow-[0_0_20px_rgba(187,152,229,0.35)]">
-                <svg className="w-6 h-6 text-[#0C0C0C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-white font-semibold text-xl mb-2">Development Philosophy</h3>
-                <p className="text-[#FFA07A] font-light text-sm italic">"Clean logic, expressive UI, automated execution"</p>
-              </div>
-            </div>
-
-            <div className="space-y-3 text-[#CBD5E1]/80 font-light leading-relaxed">
-              <p>
-                <strong className="text-white font-semibold">User-first interfaces:</strong> Every web experience is built with responsive fluid interactions, intuitive information hierarchy, and performance that feels immediate on every screen.
-              </p>
-              <p>
-                <strong className="text-white font-semibold">Autonomous AI workflows:</strong> From scripting narrative stories to self-optimizing video pipelines (surpassing 100K+ views on Instagram), I leverage AI automation where it unlocks scale, consistency, and real audience engagement.
-              </p>
-              <p>
-                <strong className="text-white font-semibold">Reliability and detail:</strong> Whether designing frontend design systems or architecting server integrations, I focus on solid code structure, clean state management, and polished aesthetics.
-              </p>
+            <div className="flex flex-wrap items-center gap-4 mt-8 pt-6 border-t border-slate-100">
+              <a
+                href="mailto:shivangitripathi1392@gmail.com"
+                className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#BB98E5] to-[#FFA07A] text-white text-xs sm:text-sm font-bold shadow-md hover:scale-105 transition-all flex items-center gap-2"
+              >
+                <span>Email Shivangi</span>
+                <span>✉</span>
+              </a>
+              <a
+                href="https://www.instagram.com/kahaniverse329/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-2.5 rounded-full bg-white border border-[#BB98E5]/50 text-[#7C3AED] hover:border-[#FFA07A] hover:text-[#EA580C] text-xs sm:text-sm font-bold shadow-xs hover:scale-105 transition-all flex items-center gap-2"
+              >
+                <span>Instagram (@kahaniverse329)</span>
+                <span>↗</span>
+              </a>
             </div>
           </div>
         </FadeIn>
 
-        {/* Timeline */}
+        {/* Stats Grid */}
         <div className="w-full">
-          <FadeIn delay={0.25} y={40}>
-            <div className="text-center mb-8">
-              <h3 className="text-white font-semibold text-2xl mb-2">My Journey</h3>
-              <p className="text-[#94A3B8] font-light">Key milestones in my path as a Software Developer &amp; Creator</p>
+          <FadeIn delay={0.15} y={30}>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+              <div className="bg-white/85 border border-[#BB98E5]/30 rounded-2xl p-5 sm:p-6 text-center shadow-sm">
+                <div className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-[#BB98E5] to-[#FFA07A] bg-clip-text text-transparent">
+                  100K+
+                </div>
+                <div className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Instagram Views</div>
+                <div className="text-[11px] text-slate-400">@kahaniverse329</div>
+              </div>
+
+              <div className="bg-white/85 border border-[#BB98E5]/30 rounded-2xl p-5 sm:p-6 text-center shadow-sm">
+                <div className="text-3xl sm:text-4xl font-black text-[#1E1B4B]">
+                  7.8
+                </div>
+                <div className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">CGPA · B.Tech CAC</div>
+                <div className="text-[11px] text-slate-400">Galgotias University</div>
+              </div>
+
+              <div className="bg-white/85 border border-[#BB98E5]/30 rounded-2xl p-5 sm:p-6 text-center shadow-sm">
+                <div className="text-3xl sm:text-4xl font-black text-[#7C3AED]">
+                  3rd
+                </div>
+                <div className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Year Student</div>
+                <div className="text-[11px] text-slate-400">Core Engineering</div>
+              </div>
+
+              <div className="bg-white/85 border border-[#BB98E5]/30 rounded-2xl p-5 sm:p-6 text-center shadow-sm">
+                <div className="text-3xl sm:text-4xl font-black text-[#EA580C]">
+                  Savvy
+                </div>
+                <div className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Frontend Intern</div>
+                <div className="text-[11px] text-slate-400">Website Designer</div>
+              </div>
             </div>
           </FadeIn>
-          <Timeline />
         </div>
 
-        {/* Contact Button */}
-        <FadeIn delay={0.3} y={20}>
-          <ContactButton />
-        </FadeIn>
+        {/* Experience Timeline */}
+        <div className="w-full">
+          <FadeIn delay={0.2} y={30}>
+            <div className="bg-white/85 border border-[#BB98E5]/25 rounded-3xl p-6 sm:p-10 shadow-sm">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#1E1B4B] mb-6 flex items-center gap-2">
+                <PixelStar size={18} />
+                <span>Experience &amp; Milestones</span>
+              </h3>
+              <Timeline />
+            </div>
+          </FadeIn>
+        </div>
       </div>
     </section>
   );

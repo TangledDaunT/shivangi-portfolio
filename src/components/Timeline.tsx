@@ -53,16 +53,16 @@ const Timeline = () => {
         >
           {/* Content Card */}
           <div className={`flex-1 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-            <div className="bg-[#121118]/80 border border-[#BB98E5]/20 rounded-2xl p-6 hover:border-[#FFA07A]/50 hover:shadow-[0_0_25px_rgba(187,152,229,0.15)] transition-all duration-300 backdrop-blur-sm">
-              <span className="text-[#FFA07A] font-bold text-xl">{event.year}</span>
-              <h3 className="text-white font-semibold text-xl mt-2 mb-3">{event.title}</h3>
-              <p className="text-[#94A3B8] font-light leading-relaxed">{event.description}</p>
+            <div className="bg-white/90 border border-[#BB98E5]/30 rounded-2xl p-6 hover:border-[#FFA07A]/60 hover:shadow-[0_8px_25px_rgba(187,152,229,0.15)] transition-all duration-300 backdrop-blur-sm">
+              <span className="text-[#EA580C] font-black text-lg">{event.year}</span>
+              <h3 className="text-[#1E1B4B] font-bold text-lg mt-1 mb-2">{event.title}</h3>
+              <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed">{event.description}</p>
             </div>
           </div>
 
           {/* Icon Circle */}
           <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#BB98E5] to-[#FFA07A] shadow-[0_0_20px_rgba(187,152,229,0.35)] flex items-center justify-center text-[#0C0C0C]">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#BB98E5] to-[#FFA07A] shadow-[0_4px_15px_rgba(187,152,229,0.3)] flex items-center justify-center text-white">
               {iconMap[event.icon]}
             </div>
           </div>

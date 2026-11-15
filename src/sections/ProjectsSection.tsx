@@ -1,147 +1,157 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import FadeIn from '../components/FadeIn';
 import { projects as allProjects, Project, categoryColors } from '../data/projects';
 import ProjectFilter from '../components/ProjectFilter';
+import FadeIn from '../components/FadeIn';
 import LiveProjectButton from '../components/LiveProjectButton';
+import { PixelStar, PixelHeart, PixelComputer } from '../components/PixelArt';
 
 interface ProjectCardProps {
   project: Project;
   index: number;
-  variant: 'large' | 'medium' | 'compact';
+  variant?: 'large' | 'medium' | 'compact';
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
+const ProjectCard = ({ project, index, variant = 'medium' }: ProjectCardProps) => {
+  // Large Featured Card
   if (variant === 'large') {
     return (
       <motion.div
-        className="rounded-[36px] sm:rounded-[44px] border border-[#BB98E5]/25 bg-[#121118]/85 backdrop-blur-md overflow-hidden hover:border-[#FFA07A]/50 hover:shadow-[0_0_35px_rgba(187,152,229,0.15),0_0_15px_rgba(255,160,122,0.1)] transition-all duration-300"
-        initial={{ opacity: 0, y: 40 }}
+        className="rounded-3xl border-2 border-[#BB98E5]/30 bg-white/90 p-7 sm:p-9 shadow-[0_12px_40px_rgba(187,152,229,0.12)] hover:shadow-[0_16px_50px_rgba(255,160,122,0.22)] hover:border-[#FFA07A]/60 transition-all backdrop-blur-md relative overflow-hidden"
+        initial={{ opacity: 0, y: 35 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-50px' }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="p-6 sm:p-8 md:p-10">
-          {/* Header */}
-          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
+        {/* Soft background ambient gradient */}
+        <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-[#BB98E5]/15 via-[#FFA07A]/10 to-transparent rounded-full blur-2xl pointer-events-none" />
+
+        <div className="relative z-10">
+          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-5">
             <div>
-              <div
-                className="text-xs font-semibold uppercase tracking-wider mb-2 px-3.5 py-1 rounded-full inline-block border border-current"
-                style={{ backgroundColor: `${categoryColors[project.category]}15`, color: categoryColors[project.category] }}
-              >
-                {project.category}
+              <div className="flex items-center gap-2 mb-2">
+                <span
+                  className="text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full border border-current shadow-sm"
+                  style={{ backgroundColor: `${categoryColors[project.category]}20`, color: categoryColors[project.category] }}
+                >
+                  {project.category}
+                </span>
+                {project.isNew && (
+                  <span className="flex items-center gap-1 text-xs font-bold px-2.5 py-0.5 rounded-full bg-gradient-to-r from-[#BB98E5] to-[#FFA07A] text-white">
+                    <PixelStar size={12} />
+                    <span>Featured</span>
+                  </span>
+                )}
               </div>
-              <h3 className="text-white font-bold text-2xl sm:text-3xl tracking-tight">{project.name}</h3>
+              <h3 className="text-[#1E1B4B] font-extrabold text-2xl sm:text-3xl tracking-tight">
+                {project.name}
+              </h3>
             </div>
             <div className="flex items-center gap-3">
               {project.liveUrl && <LiveProjectButton href={project.liveUrl} />}
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 border border-[#BB98E5]/30 rounded-full hover:bg-[#BB98E5]/15 hover:border-[#FFA07A] transition-colors"
-                aria-label={`View ${project.name}`}
-              >
-                <svg className="w-5 h-5 text-[#EBDCF9]" fill="currentColor" viewBox="0 0 24 24">
-                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.647.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.547 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" clipRule="evenodd" />
-                </svg>
-              </a>
+              {project.name.includes('KahaniVerse') && (
+                <a
+                  href="https://www.instagram.com/kahaniverse329/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-full bg-gradient-to-r from-[#BB98E5] to-[#FFA07A] text-white text-xs font-bold shadow-md hover:scale-105 transition-all flex items-center gap-1.5"
+                >
+                  <span>Watch on Instagram</span>
+                  <span>↗</span>
+                </a>
+              )}
             </div>
           </div>
 
           {/* Description */}
-          <p className="text-[#CBD5E1]/85 font-light leading-relaxed mb-4">
+          <p className="text-slate-600 font-normal leading-relaxed mb-5 text-sm sm:text-base">
             {project.longDescription || project.description}
           </p>
 
           {/* Highlights */}
           {project.highlights && (
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap gap-2 mb-5">
               {project.highlights.map((highlight) => (
                 <span
                   key={highlight}
-                  className="px-3 py-1 bg-gradient-to-r from-[#BB98E5]/15 to-[#FFA07A]/15 border border-[#BB98E5]/30 text-[#F5EDFC] rounded-full text-xs sm:text-sm font-medium"
+                  className="px-3 py-1 bg-[#FAF5FF] border border-[#BB98E5]/40 text-[#6B21A8] rounded-full text-xs font-semibold shadow-xs"
                 >
-                  {highlight}
+                  ✦ {highlight}
                 </span>
               ))}
             </div>
           )}
 
           {/* Tech Stack */}
-          <div className="flex flex-wrap gap-2">
-            {project.tech.map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 border border-[#94A3B8]/30 text-[#94A3B8] rounded-full text-xs"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          {/* Stats */}
-          {project.stars > 0 && (
-            <div className="flex items-center gap-2 mt-4 text-sm text-[#FFA07A]">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <span>{project.stars} {project.name.includes('KahaniVerse') ? 'K+ views' : 'stars'}</span>
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-100">
+            <div className="flex flex-wrap gap-1.5">
+              {project.tech.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-2.5 py-0.5 border border-slate-200 bg-white text-slate-600 rounded-lg text-xs font-medium"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
-          )}
+
+            {/* Stats */}
+            {project.stars > 0 && (
+              <div className="flex items-center gap-1.5 text-xs font-bold text-[#EA580C] bg-[#FFF7ED] px-3 py-1 rounded-full border border-[#FFEDD5]">
+                <span>⭐</span>
+                <span>{project.stars} {project.name.includes('KahaniVerse') ? 'K+ Instagram Views' : 'stars'}</span>
+              </div>
+            )}
+          </div>
         </div>
       </motion.div>
     );
   }
 
+  // Medium Card
   if (variant === 'medium') {
     return (
       <motion.div
-        className="rounded-2xl border border-[#BB98E5]/20 bg-[#121118]/80 p-6 hover:border-[#FFA07A]/50 hover:shadow-[0_0_20px_rgba(187,152,229,0.12)] transition-all"
+        className="rounded-3xl border border-[#BB98E5]/25 bg-white/85 p-6 hover:border-[#FFA07A]/60 hover:shadow-[0_12px_30px_rgba(187,152,229,0.14)] transition-all backdrop-blur-md flex flex-col justify-between"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-50px' }}
         transition={{ duration: 0.5, delay: index * 0.05 }}
-        whileHover={{ scale: 1.02 }}
+        whileHover={{ y: -4 }}
       >
-        <div className="flex items-start justify-between mb-3">
-          <h3 className="text-white font-semibold text-lg">{project.name}</h3>
-          <div className="flex gap-2">
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#94A3B8] hover:text-[#FFA07A] transition-colors"
-              aria-label={`View ${project.name}`}
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path fillRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.647.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.547 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" clipRule="evenodd" />
-              </svg>
-            </a>
+        <div>
+          <div className="flex items-start justify-between gap-2 mb-3">
+            <h3 className="text-[#1E1B4B] font-bold text-lg leading-snug">{project.name}</h3>
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold px-2.5 py-1 rounded-full bg-gradient-to-r from-[#BB98E5] to-[#FFA07A] text-white flex-shrink-0 hover:opacity-90 transition-opacity"
+              >
+                Live ↗
+              </a>
+            )}
           </div>
+
+          <p className="text-slate-600 font-normal text-xs sm:text-sm mb-4 line-clamp-3 leading-relaxed">
+            {project.description}
+          </p>
+
+          {project.highlights && project.highlights.length > 0 && (
+            <div className="flex flex-wrap gap-1 mb-4">
+              {project.highlights.slice(0, 3).map((h) => (
+                <span key={h} className="px-2 py-0.5 bg-[#FAF5FF] text-[#7C3AED] border border-[#BB98E5]/30 rounded-md text-[11px] font-medium">
+                  {h}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
 
-        <p className="text-[#94A3B8] font-light text-sm mb-3 line-clamp-2">
-          {project.description}
-        </p>
-
-        {project.highlights && project.highlights.length > 0 && (
-          <div className="flex flex-wrap gap-1 mb-3">
-            {project.highlights.slice(0, 3).map((h) => (
-              <span key={h} className="px-2 py-0.5 bg-[#BB98E5]/15 text-[#EBDCF9] rounded text-xs">
-                {h}
-              </span>
-            ))}
-          </div>
-        )}
-
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-wrap gap-1 pt-3 border-t border-slate-100">
           {project.tech.slice(0, 4).map((tech) => (
-            <span key={tech} className="px-2 py-0.5 border border-[#94A3B8]/25 text-[#94A3B8] rounded text-xs">
+            <span key={tech} className="px-2 py-0.5 bg-slate-50 border border-slate-200 text-slate-500 rounded text-[11px]">
               {tech}
             </span>
           ))}
@@ -152,29 +162,32 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) =>
 
   // Compact variant
   return (
-    <motion.a
-      href={project.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block p-4 rounded-xl bg-[#121118]/60 border border-[#BB98E5]/15 hover:border-[#FFA07A]/40 transition-all"
+    <motion.div
+      className="p-4 rounded-2xl bg-white/80 border border-[#BB98E5]/20 hover:border-[#FFA07A]/50 hover:shadow-md transition-all"
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.4, delay: index * 0.03 }}
-      whileHover={{ x: 4 }}
     >
       <div className="flex items-center justify-between">
         <div className="flex-1">
-          <h4 className="text-white font-medium text-sm mb-1">{project.name}</h4>
-          <p className="text-[#94A3B8] text-xs">{project.description || 'No description'}</p>
+          <h4 className="text-[#1E1B4B] font-bold text-sm mb-0.5">{project.name}</h4>
+          <p className="text-slate-500 text-xs">{project.description || 'Project details'}</p>
         </div>
-        <div className="text-[#FFA07A] ml-2">
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </div>
+        {project.liveUrl ? (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#EA580C] text-xs font-bold ml-2 hover:underline"
+          >
+            Launch ↗
+          </a>
+        ) : (
+          <span className="text-[#BB98E5] text-xs font-semibold ml-2">✦</span>
+        )}
       </div>
-    </motion.a>
+    </motion.div>
   );
 };
 
@@ -182,20 +195,41 @@ const ProjectsSection = () => {
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(allProjects);
 
   // Separate projects by tier
-  const featuredProjects = filteredProjects.filter(p => Boolean(p.liveUrl));
-  const iotProjects = filteredProjects.filter(p => p.category === 'iot');
+  const featuredProjects = filteredProjects.filter(p => p.category === 'featured');
+  const productionProjects = filteredProjects.filter(p => p.category === 'production');
   const automationProjects = filteredProjects.filter(p => p.category === 'automation');
-  const experimentProjects = filteredProjects.filter(p => p.category === 'experiment' && !p.liveUrl);
-  const coursework = filteredProjects.filter(p => p.category === 'coursework');
-  const newGithubProjects = filteredProjects.filter(p => p.isNew);
+  const iotProjects = filteredProjects.filter(p => p.category === 'iot');
+  const labProjects = filteredProjects.filter(p => p.isNew && p.category !== 'featured');
 
   return (
-    <section id="projects" aria-labelledby="projects-heading" className="bg-[#0C0C0C] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-10 px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32">
+    <section
+      id="projects"
+      aria-labelledby="projects-heading"
+      className="relative z-10 px-5 sm:px-8 md:px-10 py-20 sm:py-28 md:py-36 overflow-hidden"
+    >
+      {/* Funky Pixel Art Floating Decors */}
+      <div className="absolute top-12 left-8 opacity-40 pointer-events-none hidden sm:block">
+        <PixelComputer size={40} />
+      </div>
+      <div className="absolute top-20 right-12 opacity-40 pointer-events-none hidden sm:block">
+        <PixelHeart size={34} />
+      </div>
+
       <div className="max-w-6xl mx-auto">
         <FadeIn delay={0} y={40}>
-          <h2 id="projects-heading" className="hero-heading font-black uppercase text-center leading-none tracking-tight mb-16 sm:mb-20" style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}>
-            Projects
-          </h2>
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FAF5FF] border border-[#BB98E5]/40 text-[#7C3AED] text-xs font-bold uppercase tracking-widest mb-3">
+              <PixelStar size={14} />
+              <span>Selected Works &amp; Systems</span>
+            </div>
+            <h2
+              id="projects-heading"
+              className="text-[#0F172A] font-black uppercase text-center leading-none tracking-tight"
+              style={{ fontSize: 'clamp(2.5rem, 9vw, 130px)' }}
+            >
+              Projects
+            </h2>
+          </div>
         </FadeIn>
 
         {/* Filter */}
@@ -207,17 +241,19 @@ const ProjectsSection = () => {
 
         {/* Results count */}
         {filteredProjects.length !== allProjects.length && (
-          <div className="text-center mb-8 text-[#D7E2EA]/60 font-light">
+          <div className="text-center mb-8 text-slate-500 font-medium text-sm">
             Showing {filteredProjects.length} of {allProjects.length} projects
           </div>
         )}
 
         {/* Featured Projects - Large Cards */}
         {featuredProjects.length > 0 && (
-          <div className="space-y-6 mb-16">
+          <div className="space-y-7 mb-16">
             <FadeIn delay={0.1} y={20}>
-              <div className="text-center">
-                <span className="text-[#D7E2EA]/50 font-light uppercase tracking-widest text-sm">Deployed Projects</span>
+              <div className="text-center mb-2">
+                <span className="text-slate-400 font-bold uppercase tracking-widest text-xs">
+                  ✦ Featured &amp; High-Impact Releases ✦
+                </span>
               </div>
             </FadeIn>
             {featuredProjects.map((project, i) => (
@@ -226,31 +262,35 @@ const ProjectsSection = () => {
           </div>
         )}
 
-        {/* IoT Projects - Medium Cards */}
-        {iotProjects.length > 0 && (
+        {/* Live Deployments */}
+        {productionProjects.length > 0 && (
           <div className="mb-16">
             <FadeIn delay={0.15} y={20}>
               <div className="text-center mb-6">
-                <span className="text-[#D7E2EA]/50 font-light uppercase tracking-widest text-sm">IoT & Hardware</span>
+                <span className="text-slate-400 font-bold uppercase tracking-widest text-xs">
+                  ⚡ Live Deployed Applications ⚡
+                </span>
               </div>
             </FadeIn>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {iotProjects.map((project, i) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {productionProjects.map((project, i) => (
                 <ProjectCard key={project.name} project={project} index={i} variant="medium" />
               ))}
             </div>
           </div>
         )}
 
-        {/* Automation Projects - Medium Cards */}
+        {/* AI & Automation Projects */}
         {automationProjects.length > 0 && (
           <div className="mb-16">
             <FadeIn delay={0.2} y={20}>
               <div className="text-center mb-6">
-                <span className="text-[#D7E2EA]/50 font-light uppercase tracking-widest text-sm">AI & Automation</span>
+                <span className="text-slate-400 font-bold uppercase tracking-widest text-xs">
+                  🤖 AI Pipelines &amp; Workflows 🤖
+                </span>
               </div>
             </FadeIn>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {automationProjects.map((project, i) => (
                 <ProjectCard key={project.name} project={project} index={i} variant="medium" />
               ))}
@@ -258,48 +298,37 @@ const ProjectsSection = () => {
           </div>
         )}
 
-        {/* Experiment Projects */}
-        {experimentProjects.length > 0 && (
+        {/* IoT & Hardware Projects */}
+        {iotProjects.length > 0 && (
           <div className="mb-16">
             <FadeIn delay={0.25} y={20}>
               <div className="text-center mb-6">
-                <span className="text-[#D7E2EA]/50 font-light uppercase tracking-widest text-sm">Experiments & Tools</span>
+                <span className="text-slate-400 font-bold uppercase tracking-widest text-xs">
+                  ⚙️ IoT, Sensors &amp; Microcontrollers ⚙️
+                </span>
               </div>
             </FadeIn>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {experimentProjects.map((project, i) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {iotProjects.map((project, i) => (
                 <ProjectCard key={project.name} project={project} index={i} variant="medium" />
               ))}
             </div>
           </div>
         )}
 
-        {/* Coursework - Compact List */}
-        {coursework.length > 0 && (
-          <div>
+        {/* Creative Lab & Innovations */}
+        {labProjects.length > 0 && (
+          <div className="mb-16">
             <FadeIn delay={0.3} y={20}>
               <div className="text-center mb-6">
-                <span className="text-[#D7E2EA]/50 font-light uppercase tracking-widest text-sm">Coursework & Learning</span>
+                <span className="text-slate-400 font-bold uppercase tracking-widest text-xs">
+                  🧪 Creative Lab &amp; Prototypes 🧪
+                </span>
               </div>
             </FadeIn>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {coursework.map((project, i) => (
-                <ProjectCard key={project.name} project={project} index={i} variant="compact" />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {newGithubProjects.length > 0 && (
-          <div className="mb-16">
-            <FadeIn delay={0.35} y={20}>
-              <div className="text-center mb-6">
-                <span className="text-[#D7E2EA]/50 font-light uppercase tracking-widest text-sm">New GitHub Projects</span>
-              </div>
-            </FadeIn>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {newGithubProjects.map((project, i) => (
-                <ProjectCard key={`new-${project.name}`} project={project} index={i} variant="medium" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+              {labProjects.map((project, i) => (
+                <ProjectCard key={`lab-${project.name}`} project={project} index={i} variant="compact" />
               ))}
             </div>
           </div>
@@ -307,8 +336,8 @@ const ProjectsSection = () => {
 
         {/* Empty State */}
         {filteredProjects.length === 0 && (
-          <div className="text-center py-20">
-            <div className="text-[#D7E2EA]/40 font-light">No projects match your filters</div>
+          <div className="text-center py-20 bg-white/60 rounded-3xl border border-slate-200">
+            <div className="text-slate-500 font-medium">No projects match your selected filter</div>
           </div>
         )}
       </div>

@@ -13,11 +13,10 @@ const ProjectFilter: React.FC<ProjectFilterProps> = ({ projects, onSelect }) => 
 
   const categories = [
     { id: 'all', label: 'All Projects', count: projects.length },
-    { id: 'featured', label: 'Deployed Projects', count: projects.filter(p => p.liveUrl).length },
-    { id: 'iot', label: categoryLabels.iot, count: projects.filter(p => p.category === 'iot').length },
-    { id: 'automation', label: categoryLabels.automation, count: projects.filter(p => p.category === 'automation').length },
-    { id: 'experiment', label: categoryLabels.experiment, count: projects.filter(p => p.category === 'experiment').length },
-    { id: 'coursework', label: categoryLabels.coursework, count: projects.filter(p => p.category === 'coursework').length },
+    { id: 'featured', label: 'Featured', count: projects.filter(p => p.category === 'featured').length },
+    { id: 'production', label: 'Live Deployments', count: projects.filter(p => p.category === 'production').length },
+    { id: 'automation', label: 'AI & Automation', count: projects.filter(p => p.category === 'automation').length },
+    { id: 'iot', label: 'IoT & Hardware', count: projects.filter(p => p.category === 'iot').length },
   ];
 
   const handleFilter = (categoryId: string) => {
@@ -61,14 +60,14 @@ const ProjectFilter: React.FC<ProjectFilterProps> = ({ projects, onSelect }) => 
   return (
     <div className="w-full">
       {/* Search Bar */}
-      <div className="mb-6">
+      <div className="mb-6 max-w-xl mx-auto">
         <div className="relative">
           <input
             type="text"
-            placeholder="Search projects, technologies..."
+            placeholder="Search projects, AI pipelines, React tech..."
             value={searchQuery}
             onChange={(e) => handleSearch(e.target.value)}
-            className="w-full px-6 py-3 bg-[#121118]/80 border border-[#BB98E5]/30 rounded-full text-white placeholder-[#94A3B8]/50 focus:outline-none focus:border-[#FFA07A] focus:ring-1 focus:ring-[#FFA07A] transition-all backdrop-blur-md"
+            className="w-full px-6 py-3.5 bg-white/95 border-2 border-[#BB98E5]/30 rounded-full text-[#1E1B4B] placeholder-slate-400 focus:outline-none focus:border-[#FFA07A] focus:ring-2 focus:ring-[#FFA07A]/20 transition-all shadow-sm text-sm"
             aria-label="Search projects"
           />
           <div className="absolute right-5 top-1/2 transform -translate-y-1/2 text-[#BB98E5]">
@@ -85,16 +84,16 @@ const ProjectFilter: React.FC<ProjectFilterProps> = ({ projects, onSelect }) => 
           <motion.button
             key={id}
             onClick={() => handleFilter(id)}
-            className={`px-4 py-2 rounded-full border text-sm transition-all ${
+            className={`px-4 py-2 rounded-full border text-xs sm:text-sm font-semibold transition-all ${
               activeCategory === id
-                ? 'bg-gradient-to-r from-[#BB98E5] to-[#FFA07A] text-[#0C0C0C] font-semibold border-[#FFA07A] shadow-[0_0_18px_rgba(187,152,229,0.35)]'
-                : 'bg-[#121118]/80 text-[#CBD5E1] border-[#BB98E5]/25 hover:border-[#FFA07A]/50'
+                ? 'bg-gradient-to-r from-[#BB98E5] to-[#FFA07A] text-white border-transparent shadow-[0_4px_16px_rgba(187,152,229,0.35)]'
+                : 'bg-white/80 text-slate-600 border-slate-200 hover:border-[#BB98E5]/60 hover:bg-white'
             }`}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
           >
             {label}
-            <span className={`ml-2 text-xs ${activeCategory === id ? 'text-[#0C0C0C]/80' : 'text-[#94A3B8]'}`}>
+            <span className={`ml-1.5 text-xs ${activeCategory === id ? 'text-white/85' : 'text-slate-400'}`}>
               ({count})
             </span>
           </motion.button>

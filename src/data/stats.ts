@@ -90,7 +90,7 @@ export const skills = {
     { name: 'AWS / Cloud Services', level: 82 },
     { name: 'CI/CD Pipelines', level: 80 },
     { name: 'Linux System Admin', level: 85 },
-    { name: 'Git / GitHub', level: 95 },
+    { name: 'Git & Version Control', level: 95 },
   ],
   hardware: [
     { name: 'ESP32 / Arduino', level: 90 },

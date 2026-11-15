@@ -1,83 +1,64 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { PixelStar, PixelHeart, PixelSparkle } from '../components/PixelArt';
 
 const MarqueeSection = () => {
-  const row1Images = [
-    'https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif',
-    'https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif',
-    'https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif',
-    'https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif',
-    'https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif',
-    'https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif',
-    'https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif',
-    'https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif',
-    'https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif',
-    'https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif',
-    'https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif',
+  const row1Items = [
+    '✦ 100K+ INSTAGRAM VIEWS',
+    '⚡ KAHANIVERSE AI',
+    '🎓 GALGOTIAS UNIVERSITY',
+    '💻 FRONTEND ENGINEER',
+    '💘 CUPID DATING APP',
+    '🤖 AI VIDEO PIPELINES',
+    '🎨 SAVVY TECHNOLOGIES',
+    '✨ B.TECH CAC 2026',
+    '🌸 REACT & TYPESCRIPT',
+    '🔥 GEN-Z CREATIVE',
   ];
 
-  const row2Images = [
-    'https://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif',
-    'https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif',
-    'https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif',
-    'https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif',
-    'https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif',
-    'https://motionsites.ai/assets/hero-planet-orbit-preview-DWAP8Z1P.gif',
-    'https://motionsites.ai/assets/hero-new-era-preview-CocuDUm9.gif',
-    'https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif',
-    'https://motionsites.ai/assets/hero-luminex-preview-CxOP7ce6.gif',
-    'https://motionsites.ai/assets/hero-celestia-preview-0yO3jXO8.gif',
+  const row2Items = [
+    '👾 PACMAN & CANVAS',
+    '⭐ 7.8 CGPA',
+    '📊 EXPENSE TRACKER',
+    '💫 MOTION GRAPHICS',
+    '🚀 AUTONOMOUS SCRIPTS',
+    '🎯 TAILWIND CSS',
+    '✨ SHIVANGI TRIPATHI',
+    '💡 SKINCARE AI',
+    '⚡ PYTHON PIPELINES',
+    '✦ DREAM · CODE · CREATE',
   ];
 
-  const sectionRef = useRef<HTMLElement>(null);
-  const [offset, setOffset] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-      const sectionTop = sectionRef.current.offsetTop;
-      const newOffset = (window.scrollY - sectionTop + window.innerHeight) * 0.3;
-      setOffset(newOffset);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const tripled1 = [...row1Images, ...row1Images, ...row1Images];
-  const tripled2 = [...row2Images, ...row2Images, ...row2Images];
+  const tripled1 = [...row1Items, ...row1Items, ...row1Items];
+  const tripled2 = [...row2Items, ...row2Items, ...row2Items];
 
   return (
-    <section ref={sectionRef} className="bg-[#0C0C0C] pt-24 sm:pt-32 md:pt-40 pb-10 overflow-hidden">
-      <div className="flex flex-col gap-3">
-        {/* Row 1 */}
-        <div
-          className="flex gap-3"
-          style={{ transform: `translateX(${offset - 200}px)`, willChange: 'transform' }}
-        >
-          {tripled1.map((url, index) => (
-            <img
-              key={index}
-              src={url}
-              alt="Template preview"
-              className="w-[420px] h-[270px] rounded-2xl object-cover flex-shrink-0"
-              loading="lazy"
-            />
+    <section className="relative overflow-hidden py-10 sm:py-14 select-none">
+      {/* Track 1: Leftward Marquee */}
+      <div className="flex overflow-hidden py-2">
+        <div className="flex gap-4 animate-marquee whitespace-nowrap">
+          {tripled1.map((item, i) => (
+            <div
+              key={i}
+              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/90 border border-[#BB98E5]/30 shadow-xs text-xs sm:text-sm font-black tracking-widest text-[#1E1B4B] hover:border-[#FFA07A] transition-colors"
+            >
+              <PixelStar size={14} />
+              <span>{item}</span>
+            </div>
           ))}
         </div>
+      </div>
 
-        {/* Row 2 */}
-        <div
-          className="flex gap-3"
-          style={{ transform: `translateX(${-(offset - 200)}px)`, willChange: 'transform' }}
-        >
-          {tripled2.map((url, index) => (
-            <img
-              key={index}
-              src={url}
-              alt="Template preview"
-              className="w-[420px] h-[270px] rounded-2xl object-cover flex-shrink-0"
-              loading="lazy"
-            />
+      {/* Track 2: Rightward Marquee */}
+      <div className="flex overflow-hidden py-2 mt-2">
+        <div className="flex gap-4 animate-marquee-reverse whitespace-nowrap">
+          {tripled2.map((item, i) => (
+            <div
+              key={i}
+              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#FAF5FF] border border-[#BB98E5]/40 shadow-xs text-xs sm:text-sm font-black tracking-widest text-[#7C3AED] hover:border-[#FFA07A] transition-colors"
+            >
+              <PixelHeart size={14} />
+              <span>{item}</span>
+            </div>
           ))}
         </div>
       </div>
